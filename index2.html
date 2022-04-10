@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    </head>
+    <body>
+        <form>
+            <label for="fname">First name:</label><br>
+            <input type="text" id="fname" name="fname"><br><br>
+    
+            <label for="lname">Last name:</label><br>
+            <input type="text" id="lname" name="lname"><br><br>
+    
+            <label for="txtpassword">Password:</label><br>
+            <input type="password" id="txtpassword" name="txtpassword"><br><br>
+    
+            <label for="txtcfmpassword">Confirm Password:</label><br>
+            <input type="password" id="txtcfmpassword" name="txtcfmpassword"><br><br>
+            <p id="demo" style="color: red;"></p>
+            <button id="btn">Submit</button> 
+        </form>
+
+        <span><button id="btn1">Color Even Rows</button>
+            <button id="btn2">Color Odd Rows</button>
+            <br>
+            <br>
+    
+            <table id="table1" border="1">
+                <tr>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>12345678</td>
+                    <td>America</td>
+                </tr>
+                <tr>
+                    <td>TATA</td>
+                    <td>87654321</td>
+                    <td>India</td>
+                </tr>
+                <tr>
+                    <td>Apple</td>
+                    <td>12345678</td>
+                    <td>America</td>
+                </tr>
+                <tr>
+                    <td>TATA</td>
+                    <td>87654321</td>
+                    <td>India</td>
+                </tr>
+    
+                <tr>
+                    <td>Apple</td>
+                    <td>12345678</td>
+                    <td>America</td>
+                </tr>
+            </table>
+            <div class="Students">
+        <input type="text" placeholder=" Enter class" id="Class" />
+        <input type="text" placeholder=" Enter board" id="Boadr" />
+        <input type="text" placeholder=" Enter marks" id="Marks" />
+        <input type="text" placeholder=" Enter division" id="Divisions" />
+        <button id="btn3">+</button>
+        <button id="btn4">-</button>
+            </div>
+            <p id="p1"></p>
+        </body>
+        <script>
+            $(document).ready(function() {
+                $("#btn").click(() => {
+                    var Password = $("#txtpassword").val();
+                    var cfmPassword = $("#txtcfmpassword").val();
+                    var Fname = $("#fname").val();
+                    var Lname = $("#lname").val();
+
+                    if (Fname == "") {
+          $("#fname").css("background-color", "Red");
+          alert("First Name is not given");
+        } else if (Lname == "") {
+          $("#fname").css("background-color", "#fff");
+          $("#lname").css("background-color", "red");
+          alert("Last Name is not given");
+        } else if (Password == "") {
+          $("#lname").css("background-color", "#fff");
+          $("#txtpassword").css("background-color", "red");
+          alert("Password is not given");
+        } else if (cfmPassword == "") {
+          $("#txtpassword").css("background-color", "#fff");
+          $("#txtcfmpassword").css("background-color", "red");
+          alert("Confirm Password is not given");
+        } else {
+          $("#fname").css("background-color", "#fff");
+          $("#lname").css("background-color", "#fff");
+          $("#txtpassword").css("background-color", "#fff");
+          $("#txtcfmconpassword").css("background-color", "#fff");
+          if (Password != cfmPassword) {
+            $("#demo").append("Password didn't match");
+          } else {
+            $("#demo").empty();
+          }
+        }
+                });
+                $("#btn1").click(() => {
+        $("tr:even").css("background-color", "lightgray");
+      });
+      $("#btn2").click(() => {
+        $("tr:odd").css("background-color", "DodgerBlue");
+      });
+      $("#btn3").click(() => {
+        var Students = `<div class="Student"><input type="text" placeholder=" Enter class" class="Class" />
+        <input type="text" placeholder=" Enter board" class="Boadr" />
+        <input type="text" placeholder=" Enter marks" class="Marks" />
+        <input type="text" placeholder=" Enter division" class="Divisions" /></div>`;
+        $("#p1").append(Students);
+      });
+      $("#btn4").click(() => {
+        var a = $("#p1").children();
+        a.last().remove();
+      });
+
+            });
+
+        </script>
+        </html>
